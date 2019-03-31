@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chapters</title>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('js', path='p5.speech.js') }}"
+    ></script>
+    <script>
+      function readit() {
+        let speech = new p5.Speech();
+        speech.setVoice("Google हिन्दी");
+        speech.speak("Chapters");
+        $(document).ready(function() {
+          $("body").keyup(function(e) {
+            if (e.keyCode == 17) {
+              let speechRec = new p5.SpeechRec("Google हिन्दी", gotSpeech);
+              let speech = new p5.Speech();
+              speechRec.start();
+              console.log(speechRec);
+              function gotSpeech() {
+                if (speechRec.resultValue) {
+                  a = speechRec.resultString;
+                  a = a.replace(/ /g, "");
+                  a = a.toLowerCase();
+                  if (a == "back"){
+                    window.history.back();
+                  }
+                  {% for i in chapters %}
+                  if (a == i){
+                    window.open('{{url_for('subjects', subject=subject, chapter=i)}}', '_top')
+                  }
+                  {% endfor %}
+                }
+              }
+            }
+          });
+        });
+      }
+
+      window.onload = readit;
+    </script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <body>
+    <div class="w3-container w3-display-middle" style="width: 80%;">
+      <div class="w3-deep-purple w3-margin-bottom w3-round-large">
+        <h2 class="">Chapters</h2>
+      </div>
+      <ul class="w3-ul w3-hoverable w3-card-4 w3-center">
+        {% for i in chapters %}
+        <li
+          onclick="window.open('{{url_for('subjects', subject=subject, chapter=i)}}', '_top')"
+        >
+          Chapter {{ i }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

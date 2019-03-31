@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+  <title>Login</title>
+  <script
+    type="text/javascript"
+    src="http://code.jquery.com/jquery-1.7.1.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"
+  ></script>
+  <script type="text/javascript" src="../js/p5.speech.js"></script>
+  <script type="text/javascript" src="../js/login.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+</head>
+<body>
+  <div class="w3-card-4 w3-display-middle">
+    <div class="w3-deep-purple w3-container w3-margin-bottom">
+      <h2 class="">Speech LMS Login</h2>
+    </div>
+    <form method="POST" class="w3-container w3-margin-bottom">
+      <label class="w3-text-deep-purple w3-margin-bottom">Username</label>
+      <input
+        name="username"
+        type="text"
+        id="username"
+        class="w3-input w3-margin-bottom"
+      />
+      <label class="w3-text-deep-purple w3-margin-bottom">Password</label>
+      <input
+        name="password"
+        type="password"
+        id="password"
+        class="w3-input w3-margin-bottom"
+      />
+      <button
+        type="submit"
+        class="w3-btn w3-deep-purple w3-margin-bottom"
+        name="login_user"
+      >
+        Login
+      </button>
+      <a href="{{ url_for('register') }}" class="w3-text-deep-purple"
+        >Register</a
+      >
+      <script>
+        speech = new p5.Speech();
+                var ms = {{ message|tojson }};
+                speech.speak(ms);
+      </script>
+      <p class="w3-text-deep-purple">{{ message }}</p>
+    </form>
+  </div>
+</body>
+<html></html>

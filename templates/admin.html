@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <body>
+    <div
+      class="w3-sidebar w3-bar-block w3-card w3-animate-left"
+      style="display:none"
+      id="mySidebar"
+    >
+      <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">
+        Close &times;
+      </button>
+      <a href="{{ url_for('login') }}" class="w3-bar-item w3-button">LOGOUT</a>
+      <a href="{{ url_for('change') }}" class="w3-bar-item w3-button"
+        >Change Password</a
+      >
+    </div>
+    <div class="w3-deep-purple">
+      <button
+        id="openNav"
+        class="w3-button w3-deep-purple w3-xlarge"
+        onclick="w3_open()"
+      >
+        &#9776;
+      </button>
+    </div>
+    <div class="w3-display-middle" style="width:80%;">
+      <div class="w3-container">
+        <h2>Student</h2>
+        <table class="w3-table-all w3-card-4">
+          <tr class="w3-deep-purple">
+            <th>Username</th>
+            <th>Password</th>
+            <th>Branch</th>
+            <th>Semester</th>
+          </tr>
+          {% for a,b,c,d,e in student %}
+          <tr class="w3-hover-black">
+            <td>{{ a }}</td>
+            <td>{{ b }}</td>
+            <td>{{ d }}</td>
+            <td>{{ e }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="w3-container w3-margin-bottom">
+        <h2>Teacher</h2>
+        <table class="w3-table-all w3-card-4">
+          <tr class="w3-deep-purple">
+            <th>Username</th>
+            <th>Password</th>
+            <th>Branch</th>
+          </tr>
+          {% for a,b,c,d,e in teacher %}
+          <tr class="w3-hover-black">
+            <td>{{ a }}</td>
+            <td>{{ b }}</td>
+            <td>{{ d }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div>
+        <form class="w3-container" method="POST">
+          <label class="w3-text-deep-purple">Username</label>
+          <input type="text" class="w3-input" name="username" />
+          <button type="submit" class="w3-deep-purple w3-button">Remove</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

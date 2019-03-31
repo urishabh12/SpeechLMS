@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <body>
+    <div
+      class="w3-sidebar w3-bar-block w3-card w3-animate-left"
+      style="display:none"
+      id="mySidebar"
+    >
+      <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">
+        Close &times;
+      </button>
+      <a href="{{ url_for('login') }}" class="w3-bar-item w3-button">LOGOUT</a>
+    </div>
+    <div class="w3-deep-purple">
+      <button
+        id="openNav"
+        class="w3-button w3-deep-purple w3-xlarge"
+        onclick="w3_open()"
+      >
+        &#9776;
+      </button>
+    </div>
+    <div class="w3-display-middle w3-container" style="width:80%;">
+      <h2 class="w3-text-deep-purple">Feedback</h2>
+      <ul class="w3-ul w3-card-4 w3-centre w3-hoverable">
+        {% for i in f %}
+        <li>{{ i }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <script>
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

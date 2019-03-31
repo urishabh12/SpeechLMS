@@ -1,0 +1,128 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-size: 120%;
+  background: #f8f8ff;
+}
+
+.header {
+  width: 30%;
+  margin: 50px auto 0px;
+  color: white;
+  background: #5f9ea0;
+  text-align: center;
+  border: 1px solid #b0c4de;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+}
+form,
+.content {
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #b0c4de;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
+}
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+
+.input-group option {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.btn {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background: #5f9ea0;
+  border: none;
+  border-radius: 5px;
+}
+.error {
+  width: 92%;
+  margin: 0px auto;
+  padding: 10px;
+  border: 1px solid #a94442;
+  color: #a94442;
+  background: #f2dede;
+  border-radius: 5px;
+  text-align: left;
+}
+.success {
+  color: #3c763d;
+  background: #dff0d8;
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
+
+.stud h2 {
+  width: 80%;
+  margin: 50px auto 0px;
+  color: #f64c72;
+  background: #242582;
+  text-align: center;
+  border: 1px solid #2f2fa2;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+}
+
+.stud p {
+  width: 80%;
+  margin: 20px auto 0px;
+  color: #f64c72;
+  background: white;
+  text-align: center;
+  padding: 20px;
+}
+
+ul.c {
+  text-align: center;
+  display: table;
+}
+
+ul li {
+  display: inline-block;
+  margin: 50px auto 0px;
+  padding: 20px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #f64c72;
+  border: 1px solid white;
+  padding: 2px 12px;
+  background: white;
+  width: 100px;
+  height: 52px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+ul li a:hover {
+  background: #242582;
+}

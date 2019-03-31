@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+        <script
+        type="text/javascript"
+        src="http://code.jquery.com/jquery-1.7.1.min.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"
+      ></script>
+      <script
+        type="text/javascript"
+        src="{{ url_for('js', path='p5.speech.js') }}"
+      ></script>
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+      <script>
+        function readIt() {
+                var spch = window.speechSynthesis;
+                var text = {{ text|tojson }};
+                var utterance = new SpeechSynthesisUtterance(text);
+                spch.speak(utterance);
+                 
+            $(document).ready(function() {
+              $("body").keyup(function(e) {
+                if (e.keyCode == 32) {
+                    
+                    var text = {{ text|tojson }};
+                    spch.pause();
+                }
+              });
+            });
+            $(document).ready(function() {
+              $("body").keyup(function(e) {
+                if (e.keyCode == 17) {
+                    speech.stop();
+                }
+              });
+            });
+            $("#feedback").focus(function() {
+              name = "feedback";
+              speech = new p5.Speech();
+              console.log("run");
+              speech.setVoice("Google हिन्दी");
+              speech.speak(name);
+              document.body.onkeyup = function(e) {
+                if (e.keyCode == 17) {
+                  speech.stop();
+                  let speechRec = new p5.SpeechRec("Google हिन्दी", gotSpeech);
+                  speechRec.start();
+                  console.log(speechRec);
+                  function gotSpeech() {
+                    if (speechRec.resultValue) {
+                      ans = speechRec.resultString;
+                      ans = ans.replace(/ /g, "");
+                      if (ans == "back"){
+                        window.history.back();
+                      }
+                      document.getElementById("feedback").value = ans;
+                    }
+                  }
+                }
+              };
+            });
+          }
+    
+          window.onload = readIt();
+      </script>
+</head>
+<body>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large"
+        onclick="w3_close()">Close &times;</button>
+        <a href="{{url_for('login')}}" class="w3-bar-item w3-button">LOGOUT</a>
+    </div>
+    <div class="w3-deep-purple w3-margin-bottom">
+        <button id="openNav" class="w3-button w3-deep-purple w3-xlarge" onclick="w3_open()">&#9776;</button>
+    </div>
+    <div class="w3-container">
+    <p class="w3-card-4 w3-margin-bottom w3-round-large w3-deep-purple w3-large">{{text}}</p>
+    <form class="" method="POST">
+      <input name="feedback" type="text" class="w3-input" id="feedback" style="height:200px" placeholder="FEEDBACK"/>
+      <button type="submit" class="w3-button w3-deep-purple">Submit</button>
+    </form>
+  </div>
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+          }
+          
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+          }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>Register</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+</head>
+<body>
+    <div class="w3-card-4 w3-display-middle">
+    <div class="w3-deep-purple w3-container w3-margin-bottom">
+        <h2>Speech LMS Registration<h2>
+    </div>
+    <form method="POST" class="w3-container w3-margin-bottom">
+
+        <label class="w3-text-deep-purple w3-margin-bottom">Username</label>
+        <input name="username" type='text' id='username' class="w3-input w3-margin-bottom">
+        <label class="w3-text-deep-purple w3-margin-bottom">Password</label>
+        <input name="password" type='password' id='password' class="w3-input w3-margin-bottom"> 
+        <label class="w3-text-deep-purple w3-margin-bottom">User Type</label>
+        <select name="type" class="w3-select w3-margin-bottom">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select>
+        <label class="w3-text-deep-purple w3-margin-bottom ">Branch</label>
+        <select name="branch" class="w3-select w3-margin-bottom">
+            <option value="IT">Information Technology</option>
+            <option value="CMPN">Computer Engineering</option>
+            <option value="EXTC">Electronics and Telecommunication</option>
+            <option value="ETRX">Electronics</option>
+            <option value="MECH">Mechanical Engineering</option>
+            <option value="CIVIL">Civil Engineering</option>
+        </select>
+        <label class="w3-text-deep-purple w3-margin-bottom">Semester</label>
+        <select name="semester" class="w3-select w3-margin-bottom">
+            <option value="0">Teacher</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+            <option value="7">Semester 7</option>
+            <option value="8">Semester 8</option>
+        </select>
+        <button type="submit" class="w3-btn w3-deep-purple w3-margin-bottom" name="login_user">Register</button>
+        <p>{{message}}</p>
+    </form>
+    </div>
+</body>
+<html>

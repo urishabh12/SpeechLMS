@@ -27,6 +27,8 @@
         let speech = new p5.Speech();
         speech.setVoice("Google हिन्दी");
         speech.speak("Chapters");
+        var say = {{ chapters|safe }};
+        speech.speak(say);
         $(document).ready(function() {
           $("body").keyup(function(e) {
             if (e.keyCode == 17) {
@@ -43,8 +45,12 @@
                     window.history.back();
                   }
                   {% for i in chapters %}
+                  i = {{ i|safe }};
                   if (a == i){
                     window.open('{{url_for('subjects', subject=subject, chapter=i)}}', '_top')
+                  }
+                  else{
+                    speech.speak('Error');
                   }
                   {% endfor %}
                 }
@@ -59,6 +65,25 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   </head>
   <body>
+      <div
+      class="w3-sidebar w3-bar-block w3-card w3-animate-left"
+      style="display:none"
+      id="mySidebar"
+    >
+      <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">
+        Close &times;
+      </button>
+      <a href="{{ url_for('login') }}" class="w3-bar-item w3-button">LOGOUT</a>
+    </div>
+    <div class="w3-deep-purple">
+      <button
+        id="openNav"
+        class="w3-button w3-deep-purple w3-xlarge"
+        onclick="w3_open()"
+      >
+        &#9776;
+      </button>
+    </div>
     <div class="w3-container w3-display-middle" style="width: 80%;">
       <div class="w3-deep-purple w3-margin-bottom w3-round-large">
         <h2 class="">Chapters</h2>
@@ -73,5 +98,14 @@
         {% endfor %}
       </ul>
     </div>
+    <script>
+        function w3_open() {
+          document.getElementById("mySidebar").style.display = "block";
+        }
+  
+        function w3_close() {
+          document.getElementById("mySidebar").style.display = "none";
+        }
+      </script>
   </body>
 </html>

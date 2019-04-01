@@ -264,4 +264,4 @@ def css(path):
 def logout():
     return redirect(url_for('login'))
 
-app.run()
+app.run(threaded=True)

@@ -53,6 +53,9 @@
                       if (a == temp) {
                           window.open('{{url_for('pdf', path=j)}}', '_top');
                       }
+                      else {
+                        speech.speak('Error');
+                      }
                       {% endfor %}
                     }
                 }

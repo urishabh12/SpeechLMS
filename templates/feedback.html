@@ -15,17 +15,17 @@
       </button>
       <a href="{{ url_for('login') }}" class="w3-bar-item w3-button">LOGOUT</a>
     </div>
-    <div class="w3-deep-purple">
+    <div class="w3-red">
       <button
         id="openNav"
-        class="w3-button w3-deep-purple w3-xlarge"
+        class="w3-button w3-red w3-xlarge"
         onclick="w3_open()"
       >
         &#9776;
       </button>
     </div>
     <div class="w3-display-middle w3-container" style="width:80%;">
-      <h2 class="w3-text-deep-purple">Feedback</h2>
+      <h2 class="w3-text-red">Feedback</h2>
       <ul class="w3-ul w3-card-4 w3-centre w3-hoverable">
         {% for i in f %}
         <li>{{ i }}</li>

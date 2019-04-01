@@ -15,10 +15,10 @@
       </button>
       <a href="{{ url_for('login') }}" class="w3-bar-item w3-button">LOGOUT</a>
     </div>
-    <div class="w3-deep-purple">
+    <div class="w3-red">
       <button
         id="openNav"
-        class="w3-button w3-deep-purple w3-xlarge"
+        class="w3-button w3-red w3-xlarge"
         onclick="w3_open()"
       >
         &#9776;
@@ -29,12 +29,12 @@
       method="POST"
       style="width:60%;"
     >
-      <h2 class="w3-deep-purple w3-round-xlarge">Change Password</h2>
-      <label class="w3-text-deep-purple">Username</label>
+      <h2 class="w3-red w3-round-xlarge">Change Password</h2>
+      <label class="w3-text-red">Username</label>
       <input name="username" class="w3-input" />
-      <label class="w3-text-deep-purple">Password</label>
+      <label class="w3-text-red">Password</label>
       <input name="password" class="w3-input" />
-      <button class="w3-button w3-deep-purple">Change</button>
+      <button class="w3-button w3-red">Change</button>
       <p>{{ message[0] }}</p>
     </form>
     <script>

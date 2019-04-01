@@ -23,18 +23,18 @@
 </head>
 <body>
   <div class="w3-card-4 w3-display-middle">
-    <div class="w3-deep-purple w3-container w3-margin-bottom">
+    <div class="w3-red w3-container w3-margin-bottom">
       <h2 class="">Speech LMS Login</h2>
     </div>
     <form method="POST" class="w3-container w3-margin-bottom">
-      <label class="w3-text-deep-purple w3-margin-bottom">Username</label>
+      <label class="w3-text-red w3-margin-bottom">Username</label>
       <input
         name="username"
         type="text"
         id="username"
         class="w3-input w3-margin-bottom"
       />
-      <label class="w3-text-deep-purple w3-margin-bottom">Password</label>
+      <label class="w3-text-red w3-margin-bottom">Password</label>
       <input
         name="password"
         type="password"
@@ -43,20 +43,18 @@
       />
       <button
         type="submit"
-        class="w3-btn w3-deep-purple w3-margin-bottom"
+        class="w3-btn w3-red w3-margin-bottom"
         name="login_user"
       >
         Login
       </button>
-      <a href="{{ url_for('register') }}" class="w3-text-deep-purple"
-        >Register</a
-      >
+      <a href="{{ url_for('register') }}" class="w3-text-red">Register</a>
       <script>
         speech = new p5.Speech();
                 var ms = {{ message|tojson }};
                 speech.speak(ms);
       </script>
-      <p class="w3-text-deep-purple">{{ message }}</p>
+      <p class="w3-text-red">{{ message }}</p>
     </form>
   </div>
 </body>
